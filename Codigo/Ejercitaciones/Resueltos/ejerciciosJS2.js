@@ -174,7 +174,7 @@ console.log(fizzBuzz(15)); */
 
 function fizzBuzz(numero) {
   // Si "numero" es divisible entre 3, devuelve "fizz"
-  if (numero % 3 === 0 && numero % 5 === 0) {
+/*   if (numero % 3 === 0 && numero % 5 === 0) {
     // Si "numero" es divisible entre 3 y 5 (ambos), devuelve "fizzbuzz"
     return "fizzbuzz";
   } else if (numero % 3 === 0) {
@@ -186,12 +186,17 @@ function fizzBuzz(numero) {
   } else {
     // De lo contrario, devuelve el número
     return numero;
-  }
+  } */
+
+// con operador ternario 
+return (numero % 3 === 0 && numero % 5 === 0) ? "fizzbuzz" : (numero % 3 === 0) ? "fizz" : (numero % 5 === 0) ? "buzz" : false;
 }
 console.log(fizzBuzz(9));
 console.log(fizzBuzz(25));
 console.log(fizzBuzz(17));
 console.log(fizzBuzz(15));
+
+
 
 
 function operadoresLogicos(num1, num2, num3) {
@@ -219,13 +224,30 @@ function esPrimo(numero) {
   // Pista: un número primo solo es divisible por sí mismo y por 1
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
-if (numero / numero === 1 && numero / 1 === numero && numero !== 1 && numero !== 0) {
-    return true;
-  } else {
-    return false;
+
+  if(numero < 2) { // si el número es menor que 2, no es primo (0 y 1 no se consideran primos)
+    return false; // devuelve false y termina la ejecución de la función
   }
+  for(var i = 2; i <= numero/2; i++) { // iteramos desde 2 hasta la mitad del número (ningún número primo puede ser divisible por un número mayor que su mitad)
+    if(numero % i === 0) { // si el número es divisible por el número actual del bucle, no es primo
+      return false; // devuelve false y termina la ejecución de la función
+    }
+  }
+  return true; // si la función no ha devuelto false todavía, el número es primo, así que devuelve true
 }
-console.log(esPrimo());
+console.log(esPrimo(3));
+
+
+
+function esPrimo2(numero) {
+  if(numero < 2) return false;
+  for(let i = 2; i <= numero/2; i++) {
+    if(numero % i === 0) return false;
+  }
+  return true;
+}
+console.log(esPrimo2(4));
+
 
 
 
@@ -244,24 +266,44 @@ function esVerdadero(valor){
 }
 console.log(esVerdadero(true));
 
+
+
 function tablaDelSeis(){
   //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
-  //Escribe tu código aquí   
-
+  //Escribe tu código aquí
+  
+    let tabla = []; // creamos un array vacío para almacenar los resultados de la tabla de multiplicar
+    for(let i = 0; i <= 10; i++) { // iteramos de 0 a 10 para obtener los resultados del 0 al 60
+      tabla.push(i * 6); // multiplicamos el número actual del bucle (i) por 6 y lo agregamos al array "tabla"
+    }
+    return tabla; // devolvemos el array con los resultados de la tabla de multiplicar
+    
 }
+console.log(tablaDelSeis());
+
+
 
 function tieneTresDigitos(numero){
   //Leer un número entero y determinar si tiene 3 dígitos.
   //Escribe tu código aquí
-
+  return numero >= 100 && numero <= 999;
 }
+console.log(tieneTresDigitos(10));
+console.log(tieneTresDigitos(100));
+console.log(tieneTresDigitos(1000));
+
+
 
 function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
-
+  let iteraciones = 0;
+    do {
+      numero += 5; // aumentamos el número recibido en 5
+      iteraciones++;
+    } while (iteraciones < 8 && numero <= 40); // repetimos el bucle mientras el número de iteraciones sea menor a 8 y el número resultante no supere 40
+    return numero; // devolvemos el número final
 }
-
-
+console.log(doWhile(3));
