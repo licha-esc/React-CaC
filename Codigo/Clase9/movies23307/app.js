@@ -15,6 +15,7 @@ const cargarPeliculas = async () => {
 
                 <img class="poster" src="https://image.tmdb.org/t/p/w500${pelicula.poster_path}"/>
                 <h3 class="titulo">${pelicula.title}</h3>
+                <h6 class="puntaje">${pelicula.vote_average}</h6>
                 <p class="sinopsis">${pelicula.overview}</p>
                 </div>`;
 
@@ -62,4 +63,5 @@ btnSiguiente.addEventListener("click", () => {
         cargarPeliculas();
     }
 })
+
 
