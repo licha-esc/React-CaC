@@ -242,7 +242,6 @@ body {
 
 .paginacion button {
     cursor: pointer;
-    /* display: flex; */
     border-radius: 19px;
     font-size: 15px;
     padding: 10px;
